@@ -1,0 +1,601 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+    <!--hero section start-->
+    <section class=" ImageBackground ImageBackground--overlay u-height700- js-Parallax" data-overlay="5">
+        <div class="ImageBackground__holder">
+            <img src="{{ asset('front/assets/imgs/banner/ban10.jpg') }}" alt=""/>
+        </div>
+        <div class="container u-vCenter- u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30">
+            <div class="row  text-left u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30">
+                <div class="col-md-7 text-white">
+                    <h2 class="u-FontSize75 u-xs-FontSize40 u-Weight700 u-MarginTop100 u-xs-MarginTop30 u-MarginBottom0">Votre Meilleur Guide de Sortie</h2>
+                    <h3 class="text-uppercase  text-white u-Weight700 u-MarginTop0 u-MarginBottom50">Notre But est que vous aillez du bon temps!  </h3>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="bg-black-transparent u-BorderRadius4 u-BoxShadow40 u-Padding10">
+                        <div class="row u-PaddingTop30 u-PaddingLeft30 u-PaddingRight30">
+                            <div class="col-md-12">
+                                <form action="resultat" method="post">
+                                    <h3 class="text-white u-MarginTop0">Cherchez un Bon Plan</h3>
+                                    <div class="form-group">
+                                        <input class="form-control form-control--white" placeholder="Mot clé: RESTAURANT" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control form-control--white"
+                                               placeholder="La Date de votre Sortie" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                               type="date">
+
+                                    </div>
+                                    <div class="form-group select-wrapper">
+                                        <select class="form-control">
+                                            <option>Ville</option>
+                                            <option>Grand Tunis</option>
+                                            <option>Nabeul</option>
+                                            <option>Ariana</option>
+                                            <option>Bizerte</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-search" ></span> Recherche</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--hero section end-->
+
+    <!--about start-->
+    <section class=" u-PaddingTop100 u-PaddingBottom100  u-xs-PaddingBottom30 u-xs-PaddingTop30 u-sm-PaddingTop50 u-MarginBottom0 u-zIndex10 position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <h1 class="u-MarginTop0 u-sm-MarginTop30 u-Weight700">L'évènement de la semaine</h1>
+                    <p class="u-MarginBottom30 u-xs-MarginBottom30 ">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Lid est laborum dolo rumes fugats untras. </p>
+                    <p class=""> Rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+
+                    <div class="row">
+                        <div class="col-sm-6 u-MarginTop50">
+                            <p><i class="Icon Icon-map Icon--32px text-primary" aria-hidden="true"></i></p>
+                            <h4>Where</h4>
+                            <p>
+                                West International Conference Center
+                            </p>
+                            <p>San Francisco, CA</p>
+                        </div>
+                        <div class="col-sm-6 u-MarginTop50">
+                            <p><i class="Icon Icon-clock Icon--32px text-primary" aria-hidden="true"></i></p>
+                            <h4>When</h4>
+                            <p>
+                                Saturday to Thursday (09:00 AM to 05:00 PM)
+                            </p>
+                            <p>July 15 to 19, 2017 </p>
+                        </div>
+                    </div>
+
+                    <div class="u-MarginTop50">
+                        <a class="btn btn-primary text-uppercase u-MarginBottom10 u-LetterSpacing2" href="#">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about end-->
+
+    <!--features start-->
+    <section class="u-BoxShadow40">
+
+        <div class="ImageBlock ImageBlock--switch">
+            <div class="ImageBlock__image col-md-6 col-sm-4">
+                <div class="ImageBackground ImageBackground--overlay" data-overlay="0">
+                    <div class="ImageBackground__holder">
+                        <img src="{{ asset('front/assets/imgs/banner/golf.jpg') }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-7">
+                        <h1 class="u-MarginTop0 u-MarginBottom0 u-Weight700">Golf de Carthage - La Soukra , Tunis</h1>
+                        <h3 class="u-MarginTop10 text-gray">Soyez le bienvenue</h3>
+                        <p>Dans un Cadre typiquement naturel, Le Golf de Carthage offre aujourd’hui de nouveaux produits & services au sein de son Club House...</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ImageBlock">
+            <div class="ImageBlock__image col-md-6 col-sm-4">
+                <div class="ImageBackground ImageBackground--overlay" data-overlay="0">
+                    <div class="ImageBackground__holder">
+                        <img src="{{ asset('front/assets/imgs/banner/BIWA.jpg') }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-7">
+                        <h1 class="u-MarginTop0 u-MarginBottom0 u-Weight700">BIWA - Les berges du lac, Tunis</h1>
+                        <h3 class="u-MarginTop10 text-gray">Serve petit déjeuner, lunch, dinner, drinks and coffee</h3>
+                        <p>Le Restaurant BIWA vous accueille dans une Ambiance Animée, Jeune et Familiale et vous propose des Spécialités Fruits de Mers, Grillades et Internationales autour d'un groupe live chaque soir.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--features end-->
+
+    <!--speakers start-->
+    <section class="u-PaddingTop100 u-PaddingBottom100 u-xs-PaddingBottom30 u-xs-PaddingTop30 u-MarginBottom0 u-zIndex10 position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center u-MarginBottom100 u-xs-MarginBottom30 u-sm-MarginBottom30">
+                    <small class="text-uppercase u-LetterSpacing1">Les Endroits les plus Recommandés dans ces</small>
+                    <h1 class="u-MarginTop5 u-MarginBottom10 u-Weight700">Villes</h1>
+                    <div class="Split Split--height2"></div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+
+                            <a href="#test-popup" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/ariana.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Ariana</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+
+                            <div id="test-popup" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/ariana.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Ariana</h3>
+                                        <p class="text-gray">Ville au nord de la capitale</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+                            <a href="#test-popup2" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/tunis.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Tunis</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+
+                            <div id="test-popup2" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/tunis.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Tunis</h3>
+                                        <p class="text-gray">C'est la Capitale</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+                            <a href="#test-popup3" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive"src="{{ asset('front/assets/imgs/villes/nabeul.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Nabeul</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            <div id="test-popup3" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/nabeul.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Nabeul</h3>
+                                        <p class="text-gray">Située à 60 km de la capitale ville paradisiaque</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+                            <a href="#test-popup4" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/bizert.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Bizerte</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+
+                            <div id="test-popup4" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/bizert.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Bizerte</h3>
+                                        <p class="text-gray">La plus au nord du pays</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+                            <a href="#test-popup5" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/sfax.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Sfax</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+
+                            <div id="test-popup5" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/sfax.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Sfax</h3>
+                                        <p class="text-gray">centré avec un beau climat</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 u-MarginBottom35">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb u-InlineBlock">
+                            <a href="#test-popup6" class="open-popup-link hover-img">
+                                <figure>
+                                    <img class="img-responsive"src="{{ asset('front/assets/imgs/villes/sousse.jpg') }}" alt="...">
+                                    <span class="Icon Icon-plus2"></span>
+                                </figure>
+                            </a>
+                            <h4 class="u-MarginTop25 u-MarginBottom0">Sousse</h4>
+                            <p class="text-gray"></p>
+                            <p class="u-MarginTop20 u-MarginBottom20 Anchors">
+                                <a class="text-muted" href="#"> <i class="fa fa-facebook"></i></a>
+                                <a class="text-muted" href="#"> <i class="fa fa-youtube"></i></a>
+                                <a class="text-muted" href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+
+                            <div id="test-popup6" class="white-popup mfp-hide">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img class="img-responsive" src="{{ asset('front/assets/imgs/villes/sousse.jpg') }}" alt="...">
+                                        <div class="u-MarginTop30 u-MarginBottom30 social-links sl-default border-link round-link colored-link text-center">
+                                            <a href="#" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+
+                                            <a href="#" class="g-plus">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                            <a href="#" class="youtube">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="u-MarginTop0 u-MarginBottom0">Sousse</h3>
+                                        <p class="text-gray">au centre du pays 120 km de la capitale</p>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat numquam, nemo distinctio doloremque cupiditate vel cum. Rem inventore quisquam, nostrum sequi porro, quaerat necessitatibus esse sit molestias ut, incidunt harum!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--speakers end-->
+
+    <!--schedule short info start-->
+    <section class="bg-primary bg-primary--gradient u-PaddingTop50 u-PaddingBottom50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 u-sm-MarginBottom30">
+                    <div class="media u-OverflowVisible">
+                        <div class="media-left">
+                            <div class="Thumb">
+                                <i class="Icon Icon-map Icon--32px" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="u-MarginTop0 u-MarginBottom5 u-Weight700">Wst. Conference Center</h4>
+                            <small>San Francisco, CA </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 u-sm-MarginBottom30">
+                    <div class="media u-OverflowVisible">
+                        <div class="media-left">
+                            <div class="Thumb">
+                                <i class="Icon Icon-clock Icon--32px" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="u-MarginTop0 u-MarginBottom5 u-Weight700">July 15 - 19, 2017</h4>
+                            <small>09:00 AM - 05:00 PM </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 u-sm-MarginBottom30">
+                    <div class="media u-OverflowVisible">
+                        <div class="media-left">
+                            <div class="Thumb">
+                                <i class="Icon Icon-sitemap Icon--32px" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="u-MarginTop0 u-MarginBottom5 u-Weight700">343 Available Seats </h4>
+                            <small>Hurryup! few tickets are left </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="media u-OverflowVisible">
+                        <div class="media-left">
+                            <div class="Thumb">
+                                <i class="Icon Icon-wine Icon--32px" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="u-MarginTop0 u-MarginBottom5 u-Weight700">Free Lunch & Snacks</h4>
+                            <small>Don't miss it</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--schedule short info end-->
+
+
+
+    <!--pricing table start-->
+    <section class="ImageBackground ImageBackground--overlay js-Parallax" data-overlay="2">
+        <div class="ImageBackground__holder">
+            <img src="assets/imgs/banner/ban1.jpg" alt="...">
+        </div>
+        <div class="container u-PaddingTop100 u-PaddingBottom100">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 text-center u-sm-MarginBottom30">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb Blurb--wrapper u-BorderRadius6">
+                            <h3 class="u-MarginTop0">Basic</h3>
+                            <div class="u-FontSize50 u-Weight700">
+                                <small class="u-InlineBlock u-VerticalMiddle">$</small>29
+                            </div>
+                            <small class="text-gray text-uppercase">Per Day</small>
+                            <p class="  u-MarginTop35 u-MarginBottom35 u-LineHeight3">
+                                - Entrance
+                                <br>
+                                - Free Lunch & Snacks
+                                <br>
+                                - Custom Badge
+                                <br>
+                                - Certificate
+                            </p>
+                            <a class="btn btn-default u-Weight400" href="#">Buy Ticket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 text-center u-sm-MarginBottom30">
+                    <div class="u-BoxShadow100">
+                        <div class=" Blurb--wrapper bg-primary bg-primary--gradient310 u-BorderRadius6">
+                            <h3 class=" u-MarginTop0">Standard</h3>
+                            <div class=" u-FontSize50 u-Weight700">
+                                <small class="u-InlineBlock u-VerticalMiddle">$</small>49
+                            </div>
+                            <small class=" text-uppercase">Per Day</small>
+                            <p class="  u-MarginTop35 u-MarginBottom35 u-LineHeight3">
+                                - Entrance
+                                <br>
+                                - Free Lunch & Snacks
+                                <br>
+                                - Custom Badge
+                                <br>
+                                - Certificate
+                            </p>
+                            <a class="btn btn-shadow u-Weight400" href="#">Buy Ticket</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 text-center ">
+                    <div class="u-BoxShadow100">
+                        <div class="Blurb Blurb--wrapper u-BorderRadius6">
+                            <h3 class="u-MarginTop0">Premium</h3>
+                            <div class="u-FontSize50 u-Weight700">
+                                <small class="u-InlineBlock u-VerticalMiddle">$</small>99
+                            </div>
+                            <small class="text-gray text-uppercase">Per Day</small>
+                            <p class="u-MarginTop35 u-MarginBottom35 u-LineHeight3">
+                                - Entrance
+                                <br>
+                                - Free Lunch & Snacks
+                                <br>
+                                - Custom Badge
+                                <br>
+                                - Certificate
+                            </p>
+                            <a class="btn btn-default u-Weight400" href="#">Buy Ticket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--pricing table end-->
+
+
+
+    <!--subscribe start-->
+    <section class="colorfull-subscribe u-BoxShadow40 u-PaddingTop150 u-sm-PaddingTop50 u-PaddingBottom150 u-sm-PaddingBottom30">
+        <div class="container text-center">
+            <h3 class="u-MarginTop0 u-MarginBottom30 u-Weight700">Enregistrer vous pour etre informer des évènenements à venir </h3>
+            <!--<p class="u-Margin0">Subscribe to get all newsletter and publication.</p>-->
+            <div class="row">
+                <div class="col-md-4 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="form-group">
+                        <input class="form-control " placeholder="Enter your email address" type="email">
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-3">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block ">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--subscribe end-->
+
+
+
+{% endblock %}

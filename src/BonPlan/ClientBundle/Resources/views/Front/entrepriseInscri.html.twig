@@ -1,0 +1,105 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+    <section class="ImageBackground ImageBackground--overlay v-align-parent u-height450" data-overlay="5">
+        <div class="ImageBackground__holder">
+            <img src="{{ asset('front/assets/imgs/banner/ban12.jpg') }}" alt=""/>
+        </div>
+        <div class="v-align-child">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 text-white text-center">
+                        <h1 class="text-uppercase u-Margin0 u-Weight700">Devenez Notre Partenaire</h1>
+                        <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
+                            <li><a href="#">Acceuil</a></li>
+                            <li class="active"><span>Inscription</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <!-- form start-->
+    <div class="container  u-xs-MarginTop30 u-MarginBottom150 u-xs-MarginBottom30" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="u-Weight700">Inscrivez vous!</h1>
+                <p>Merci de bien remplir ce formulaire  </p>
+                <form class="row u-xs-MarginTop30 js-ContactForm" method="post" style="margin-top: 50px">
+                    <div class="col-md-12">
+                        <div class="form-group select-wrapper">
+                            <select class="form-control">
+                                <option>Vous êtes?</option>
+                                <option>Restaurant</option>
+                                <option>Salon de Thé</option>
+                                <option>Hotel</option>
+                                <option>Cinéma</option>
+                                <option>Randonneur</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nom ou Raison Sociale" name="name" data-error="Vous devez entrer un nom" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" name="email" data-error="Vous devez entrer une addresse email" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Description" name="message" ></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="col-md-6" style="margin-top: 171px">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Votre addresse" name="name" data-error="Vous devez entrer une addresse" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                      Select images: <input type="file" name="img" multiple>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <h3 class="u-Weight700 u-MarginTop0">  <label >  Devenir prenium
+                                <input type="checkbox" style="width: 20px ;height:20px"  name="">
+                            </label>
+                        </h3>
+                    </div>
+                </div>
+
+
+
+
+                <center>
+                    <button type="submit" class="btn btn-black">Inscrivez vous</button>
+
+                </center>
+            </div>
+
+        </div>
+    </div>
+    </form>
+    <!-- form end-->
+
+
+
+
+
+
+
+{% endblock %}

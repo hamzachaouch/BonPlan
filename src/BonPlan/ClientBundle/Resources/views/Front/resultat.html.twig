@@ -1,0 +1,296 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+
+    <!--page title start-->
+    <section class="ImageBackground ImageBackground--overlay v-align-parent u-height350 u-BoxShadow40" data-overlay="0">
+        <div class="ImageBackground__holder">
+            <img src="{{ asset ('front/assets/imgs/banner/ban1.jpg')}}" alt=""/>
+        </div>
+        <div class="v-align-child">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 text-center">
+                        <h1 class="text-uppercase u-Margin0 u-Weight700">Résultat</h1>
+                        <ol class="breadcrumb u-MarginTop10 u-MarginBottom0">
+                            <li><a href="#">Acceuil</a></li>
+                            <li class="active"><span>Résultat</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <!-- start-->
+    <div class="container u-PaddingTop100 u-xs-PaddingTop50">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+
+
+                <!--widget start-->
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <h5 class="text-uppercase u-Weight700">Critères de recherche</h5>
+                    <hr/>
+
+                    <div class="media u-MarginBottom30">
+
+                            <form>
+                               <center>
+                                <div class="slidecontainer">
+                                        <label for="edit-villes" class="control-label">Budget</label>
+
+                                        <input type="range" min="0" max="3000" value="50" class="slider" id="myRange">
+                                    <br>
+                                        <span id="demo"></span></p>
+                                 </div>
+                               </center>
+
+
+                    </div>
+
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ville" name="name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <input class="form-control form-control--white"
+                                   placeholder="La Date de votre Sortie" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                   type="date">
+                        </div>
+                    </div>
+                    <div class="media u-MarginBottom30">
+
+                    <div class="form-group select-wrapper">
+                        <select class="form-control">
+                            <option>Ville</option>
+                            <option>Grand Tunis</option>
+                            <option>Nabeul</option>
+                            <option>Ariana</option>
+                            <option>Bizerte</option>
+
+                        </select>
+                    </div>
+                    </div>
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-search" ></span> Recherche</button>
+                        </div>
+
+                    </div>
+
+                    </form>
+                </div>
+                <!--widget end-->
+
+
+                <!--widget start-->
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <h5 class="text-uppercase u-Weight700">Derniers commentaires</h5>
+                    <hr/>
+
+                    <ul class="light-gray-link list-unstyled u-LineHeight2 u-PaddingRight40 u-xs-PaddingRight0">
+                        <li>
+                            <i class="fa fa-comments-o u-MarginRight10 text-muted" aria-hidden="true"></i>
+                            <a href="#" class="default-color">Admin</a>
+                            <span class="text-muted">on</span>
+                            <a href="#">Vestiblulum quis dorlor</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-comments-o u-MarginRight10 text-muted" aria-hidden="true"></i>
+                            <a href="#" class="default-color">Nelson Leonard</a>
+                            <span class="text-muted">on</span>
+                            <a href="#">Nam arcu tellus quis </a>
+                        </li>
+                        <li>
+                            <i class="fa fa-comments-o u-MarginRight10 text-muted" aria-hidden="true"></i>
+                            <a href="#" class="default-color">Tanisha</a>
+                            <span class="text-muted">on</span>
+                            <a href="#">Fringila ut vel ipsum</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--widget end-->
+
+
+
+            </div>
+            <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
+                <!--blog post start-->
+                <div class="blog-post">
+                    <div class="b-title">
+                        <a href="#" class="default-color ">Lifestyle</a> , <a href="#" class="default-color "> Fashion</a>
+                        <h1 class="u-MarginTop10 u-MarginBottom10">Golf soukra - Tunis</h1>
+                        <p class="u-MarginBottom30">By <a href="#">Jonathan Smith</a>   |   <a href="#">18 February 2017</a></p>
+                    </div>
+                    <div class="b-thumb u-MarginBottom30">
+                        <img src="{{ asset('front/assets/imgs/banner/ban1.jpg') }}" alt=""/>
+                    </div>
+                    <div class="b-txt">
+                        <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Fugats vitaes nemo minima rerums unsers sadips amets. Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Fugats vitaes nemo minima rerums unsers sadips amets.</p>
+                        <p class="u-LineHeight2 u-MarginBottom30">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                    </div>
+
+                    <!--tags start-->
+                    <!-- <div class="u-Block u-MarginTop100">
+                        <h5 class="text-uppercase u-Weight700 u-LetterSpacing2">Tags</h5>
+                        <ul class="list-inline u-LineHeight2 u-MarginBottom0">
+                            <li><a class="btn btn-sm btn-default" href="#">portfolio</a></li>
+                            <li><a class="btn btn-sm btn-default" href="#">design</a></li>
+                            <li><a class="btn btn-sm btn-default" href="#">video</a></li>
+                        </ul>
+                    </div> -->
+                    <!--tags end-->
+                    <!--socials start-->
+                    <div class="u-Block u-MarginTop60">
+                        <h5 class="text-uppercase u-Weight700 u-LetterSpacing2">Partagez avec vos amis</h5>
+                        <div class="social-links sl-default border-link circle-link colored-hover">
+                            <a href="#" class="facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="g-plus">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="#" class="youtube">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                            <a href="#" class="dribbble">
+                                <i class="fa fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="behance">
+                                <i class="fa fa-behance"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--socials end-->
+
+                    <!--comments start-->
+                    <div class="u-Block u-MarginTop60">
+                        <h4 class="text-uppercase">5 Comments</h4>
+                        <hr>
+                        <ul class="media-list u-MarginTop50">
+                            <!-- Comment Item start-->
+                            <li class="media u-MarginBottom50">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}" alt="" width="50" height="50">
+                                </a>
+                                <div class="media-body">
+                                    <div class="u-MarginBottom10">
+                                        <div class="text-uppercase u-Weight600">
+                                            <a href="#">John Doe</a>
+                                        </div>
+                                        July 02, 2015, at 11:34 <a href="#" class="u-MarginLeft10"><i class="fa fa-comment-o"></i> Reply</a>
+                                    </div>
+                                    <div class="text-gray">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                    </div>
+
+                                    <!--  second level Comment start-->
+                                    <div class="media u-MarginTop50">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}" alt="" width="50" height="50">
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="u-MarginBottom10">
+                                                <div class="text-uppercase u-Weight600">
+                                                    <a href="#">Marry Custar</a>
+                                                </div>
+                                                July 02, 2015, at 11:34 <a href="#" class="u-MarginLeft10"><i class="fa fa-comment-o"></i> Reply</a>
+                                            </div>
+                                            <div class="text-gray">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                            </div>
+
+                                            <!-- third level Comment start -->
+                                            <div class="media u-MarginTop50">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}" alt="" width="50" height="50">
+                                                </a>
+                                                <div class="media-body">
+                                                    <div class="u-MarginBottom10">
+                                                        <div class="text-uppercase u-Weight600">
+                                                            <a href="#">Munni Saha</a>
+                                                        </div>
+                                                        July 02, 2015, at 11:34 <a href="#" class="u-MarginLeft10"><i class="fa fa-comment-o"></i> Reply</a>
+                                                    </div>
+                                                    <div class="text-gray">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- third level Comment end -->
+
+                                        </div>
+                                    </div>
+                                    <!-- second level Comment end -->
+
+                                </div>
+                            </li>
+                            <!-- End Comment Item -->
+                            <li class="media u-MarginBottom50">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}"  alt="" width="50" height="50">
+                                </a>
+                                <div class="media-body">
+                                    <div class="u-MarginBottom10">
+                                        <div class="text-uppercase u-Weight600">
+                                            <a href="#">Marry Custar</a>
+                                        </div>
+                                        July 02, 2015, at 11:34 <a href="#" class="u-MarginLeft10"><i class="fa fa-comment-o"></i> Reply</a>
+                                    </div>
+                                    <div class="text-gray">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media u-MarginBottom50">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}" alt="" width="50" height="50">
+                                </a>
+                                <div class="media-body">
+                                    <div class="u-MarginBottom10">
+                                        <div class="text-uppercase u-Weight600">
+                                            <a href="#">Munna Mainul</a>
+                                        </div>
+                                        July 02, 2015, at 11:34 <a href="#" class="u-MarginLeft10"><i class="fa fa-comment-o"></i> Reply</a>
+                                    </div>
+                                    <div class="text-gray">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--comments end-->
+
+                    <!--write comment start-->
+                    <div class="u-Block u-MarginTop100 u-MarginBottom100">
+                        <h4 class="text-uppercase">Commentez</h4>
+                        <hr>
+                        <div class="row u-MarginTop50">
+                            <form>
+                                <div class="form-group col-md-12">
+                                    <textarea class="form-control" placeholder="Commentaire"></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary btn-block">Commentez</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--write comment end-->
+                </div>
+                <!--blog post end-->
+            </div>
+        </div>
+    </div>
+    <!-- end-->
+{% endblock %}

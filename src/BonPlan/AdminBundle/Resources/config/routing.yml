@@ -1,0 +1,27 @@
+bon_plan_admin_homepage:
+    path:     /ss
+    defaults: { _controller: BonPlanAdminBundle:Default:index }
+AjouterClient:
+    path:     /AjouterC
+    defaults: { _controller: BonPlanAdminBundle:back:AjouterClient }
+ConsulterClient:
+    path:     /ConsulterC
+    defaults: { _controller: BonPlanAdminBundle:back:ConsulterClient }
+AjouterEntreprise:
+    path:     /AjouterE
+    defaults: { _controller: BonPlanAdminBundle:back:AjouterEntreprise }
+ConsulterEntreprise:
+    path:     /ConsulterE
+    defaults: { _controller: BonPlanAdminBundle:back:ConsulterEntreprise }
+ConsulterAvis:
+    path:     /ConsulterA
+    defaults: { _controller: BonPlanAdminBundle:back:ConsulterAvis }
+Statistique:
+    path:     /Stat
+    defaults: { _controller: BonPlanAdminBundle:back:Statistique }
+Calendrie:
+    path:     /Calendrie
+    defaults: { _controller: BonPlanAdminBundle:back:Calendrie }
+Mail:
+    path:     /Mail
+    defaults: { _controller: BonPlanAdminBundle:back:Mail }

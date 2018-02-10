@@ -1,0 +1,23 @@
+bon_plan_client_homepage:
+    path:     /
+    defaults: { _controller: BonPlanClientBundle:Default:index }
+bon_plan_resultat:
+    path:     /resultat
+    defaults: { _controller: BonPlanClientBundle:Front:resultat }
+
+bon_plan_home:
+    path:     /home
+    defaults: { _controller: BonPlanClientBundle:Front:index }
+
+bon_plan_inscriEntreprise:
+    path:     /inscriEntreprise
+    defaults: { _controller: BonPlanClientBundle:Front:inscriEntreprise }
+
+bon_plan_inscriClient:
+    path:     /inscriClient
+    defaults: { _controller: BonPlanClientBundle:Front:inscriClient }
+
+
+
+
+
