@@ -60,10 +60,108 @@
             background: #4CAF50;
             cursor: pointer;
         }
+
+        @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+        /****** LOGIN MODAL ******/
+        .loginmodal-container {
+            padding: 30px;
+            max-width: 350px;
+            width: 100% !important;
+            background-color: #F7F7F7;
+            margin: 0 auto;
+            border-radius: 2px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            font-family: roboto;
+        }
+
+        .loginmodal-container h1 {
+            text-align: center;
+            font-size: 2em;
+            font-family: roboto;
+            font-weight: bold;
+        }
+
+        .loginmodal-container input[type=submit] {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .loginmodal-container input[type=text], input[type=password] {
+            height: 44px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            /* border-radius: 2px; */
+            padding: 0 8px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+            border: 1px solid #b9b9b9;
+            border-top: 1px solid #a0a0a0;
+            -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .loginmodal {
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+            height: 36px;
+            padding: 0 8px;
+            /* border-radius: 3px; */
+            /* -webkit-user-select: none;
+              user-select: none; */
+        }
+
+        .loginmodal-submit {
+            /* border: 1px solid #3079ed; */
+            border: 0px;
+            color: #fff;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+            background-color: #FA0048;
+            padding: 17px 0px;
+            font-family: roboto;
+            font-size: 14px;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+
+        .loginmodal-submit:hover {
+            /* border: 1px solid #2f5bb7; */
+            border: 0px;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+            background-color: #FA0048;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+
+        .loginmodal-container a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 400;
+            text-align: center;
+            display: inline-block;
+            opacity: 0.6;
+            transition: opacity ease 0.5s;
+        }
+
+        .login-help {
+            font-size: 12px;
+        }
     </style>
 
 </head>
-<body>
+<body onload="NotationSystem();">
 
 <!--header start-->
 <header id="header" class="Sticky">
@@ -126,6 +224,9 @@
                     <li class="dropdown">
                         <a href="inscriEntreprise" > partenaire</a>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="modal" data-target="#login-modal"> Login</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
@@ -137,7 +238,25 @@
 </header>
 <!--header end-->
 
+<!--login poppup-->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Login</h1><br>
 
+            <form action="{{ path('login_check') }}" method="post">
+                <input type="text" name="_username" placeholder="Email">
+                <input type="password" name="_password" placeholder="mot de passe">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+            <div class="login-help">
+                <a href="#">S'inscrire</a> - <a href="#">Mot de passe oublié?</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% block content %}
 
@@ -197,6 +316,61 @@
 <!-- contact form -->
 <script src="{{ asset('front/assets/vendor/bootstrap-validator/validator.min.js') }}"></script>
 <script src="{{ asset('front/assets/build/js/mailer.js') }}"></script>
+<script>
+    <!--
+    StarOutUrl = "{{ asset('front/assets/imgs/Staroff.gif') }}";		//image par défaut
+    StarOverUrl = "{{ asset('front/assets/imgs/Staron.gif') }}";		//image d'une étoile sélectionnée
+    StarBaseId = 'Star';			//id de base des étoiles
+    NbStar = 5;			//nombre d'étoiles
+
+    LgtStarBaseId = StarBaseId.lastIndexOf('');
+
+    function NotationSystem() {
+        for (i = 1; i < NbStar + 1; i++) {
+            var img = document.getElementById('Star' + i);
+
+            img.onclick = function () {
+                document.getElementById('resultat').innerHTML = 'Donner la note de ' + Name2Nb(this.id);
+            };
+            //Réaction lors du clic sur une étoile
+            //Evidemment, il faudrait compléter cette fonction pour la rendre vraiment utile.
+            //Par exemple, envoyer la note dans une base de donnée via un XMLHttpRequest.
+
+            // img.alt			='Donner la note de '+i;
+            //Texte au survol
+
+            img.src = StarOutUrl;
+            img.onmouseover = function () {
+                StarOver(this.id);
+            };
+            img.onmouseout = function () {
+                StarOut(this.id);
+            };
+        }
+    }
+
+    function StarOver(Star) {
+        StarNb = Name2Nb(Star);
+        for (i = 1; i < (StarNb * 1) + 1; i++) {
+            document.getElementById('Star' + i).src = StarOverUrl;
+        }
+    }
+
+    function StarOut(Star) {
+        StarNb = Name2Nb(Star);
+        for (i = 1; i < (StarNb * 1) + 1; i++) {
+            document.getElementById('Star' + i).src = StarOutUrl;
+        }
+    }
+
+    function Name2Nb(Star) {
+        //Le survol d'une étoile ne nous permet pas de connaître directement son numéro
+        //Cette fonction extrait donc ce numéro à partir de l'Id
+        StarNb = Star.slice(LgtStarBaseId);
+        return (StarNb);
+    }
+    -->
+</script>
 <script>
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");

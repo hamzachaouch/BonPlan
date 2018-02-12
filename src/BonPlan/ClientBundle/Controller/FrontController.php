@@ -3,6 +3,8 @@
 namespace BonPlan\ClientBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class FrontController extends Controller
 {
@@ -13,7 +15,9 @@ class FrontController extends Controller
 
     public function indexAction()
     {
+
         return $this->render('BonPlanClientBundle:Front:index.html.twig');
+
     }
 
     public function inscriEntrepriseAction()

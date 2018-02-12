@@ -1,6 +1,6 @@
 bon_plan_admin_homepage:
-    path:     /ss
-    defaults: { _controller: BonPlanAdminBundle:Default:index }
+    path:     /
+    defaults: { _controller: BonPlanAdminBundle:back:index }
 AjouterClient:
     path:     /AjouterC
     defaults: { _controller: BonPlanAdminBundle:back:AjouterClient }

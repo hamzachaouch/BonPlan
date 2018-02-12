@@ -4,10 +4,13 @@ bon_plan_client:
 
 bon_plan_admin:
     resource: "@BonPlanAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+login_check:
+    path: /login_check

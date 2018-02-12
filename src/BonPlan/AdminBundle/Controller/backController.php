@@ -10,9 +10,17 @@ namespace BonPlan\AdminBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class backController extends Controller
 {
+
+    public function indexAction()
+    {
+        return $this->render('BonPlanAdminBundle:Default:dashboard.html.twig');
+
+    }
+    
     public function AjouterClientAction()
     {
         return $this->render('BonPlanAdminBundle:client:ajouter.html.twig');
