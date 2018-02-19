@@ -1,0 +1,31 @@
+BonPlan\AdminBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: BonPlan\AdminBundle\Repository\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '100'
+        description:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: '50'
+        addresse:
+            type: string
+            length: 255
+        price:
+            type: float
+        date:
+            type: date
+        imgUrl:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

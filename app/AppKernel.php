@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new BonPlan\AdminBundle\BonPlanAdminBundle(),
             new BonPlan\ClientBundle\BonPlanClientBundle(),
+            new BonPlan\UserBundle\BonPlanUserBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

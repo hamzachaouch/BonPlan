@@ -1,0 +1,41 @@
+BonPlan\AdminBundle\Entity\Review:
+    type: entity
+    table: null
+    repositoryClass: BonPlan\AdminBundle\Repository\ReviewRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idCompany:
+            type: integer
+            column: id_Company
+        idClient:
+            type: integer
+            column: id_Client
+        content:
+            type: string
+            length: 255
+        title:
+            type: string
+            length: 255
+        qualityPrice:
+            type: integer
+            column: quality_price
+        service:
+            type: integer
+        satisfaction:
+            type: integer
+        globalMark:
+            type: integer
+            column: global_mark
+        dateOfVisit:
+            type: date
+            column: date_of_visit
+        imgUrl:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

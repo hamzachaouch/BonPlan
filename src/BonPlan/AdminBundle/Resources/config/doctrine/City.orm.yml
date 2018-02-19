@@ -1,0 +1,30 @@
+BonPlan\AdminBundle\Entity\City:
+    type: entity
+    table: null
+    repositoryClass: BonPlan\AdminBundle\Repository\CityRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        description:
+            type: string
+            length: 255
+        linkYoutube:
+            type: string
+            length: 255
+        linkFb:
+            type: string
+            length: 255
+        linkInsta:
+            type: string
+            length: 255
+        imgUrl:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

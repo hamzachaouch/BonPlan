@@ -9,7 +9,6 @@
 
     <title>{% block title %}Bon Plan{% endblock %}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/bootsnav/css/bootsnav.css') }}">
@@ -21,6 +20,13 @@
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/swiper/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/main.min.css') }}">
     <!-- endinject -->
+    <!-- rating stars assets -->
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css') }}" />
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js') }}"></script>
+
+
+
 
     <style>
         .slidecontainer {
@@ -104,6 +110,20 @@
             box-sizing: border-box;
             -moz-box-sizing: border-box;
         }
+        .avis-modal-container input[type=text] {
+            height: 44px;
+            font-size: 16px;
+            width: 75%;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            /* border-radius: 2px; */
+            padding: 0 8px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
 
         .loginmodal-container input[type=text]:hover, input[type=password]:hover {
             border: 1px solid #b9b9b9;
@@ -158,10 +178,41 @@
         .login-help {
             font-size: 12px;
         }
+
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 90%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        /* Individual bars */
+       .bar-5 { height: 18px; background-color: #FA0048;}
+
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+        @media (max-width: 400px) {
+            .side, .middle {
+                width: 100%;
+            }
+            .right {
+                display: none;
+            }
+        }
+
     </style>
 
 </head>
-<body onload="NotationSystem();">
+<body>
+
 
 <!--header start-->
 <header id="header" class="Sticky">
@@ -199,18 +250,18 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right" data-in="" data-out="">
                     <li class="dropdown">
-                        <a href="home"  >Accueil</a>
+                        <a href="{{ path('bon_plan_home') }}"  >Accueil</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Que cherchez vous?</a>
                         <ul class="dropdown-menu">
-                            <li><a href="resultat">Soirée</a></li>
-                            <li><a href="resultat">Randonnée</a></li>
-                            <li><a href="resultat">Cinémas</a></li>
-                            <li><a href="resultat">Salon de Thé</a></li>
-                            <li><a href="resultat">Restaurants</a></li>
-                            <li><a href="resultat">HÔTELS</a></li>
-                            <li><a href="resultat">Promos Disponibles</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Soirée'}) }}">Soirée</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Randonneur'}) }}">Randonnée</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Cinémas'}) }}">Cinémas</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Salon de Thé'}) }}">Salon de Thé</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Restaurant'}) }}">Restaurants</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Hotel'}) }}">HÔTELS</a></li>
+                            <li><a href="#promos">Promos Disponibles</a></li>
 
                         </ul>
                     </li>
@@ -219,10 +270,10 @@
                         <a href="" >Contact</a>
                     </li>
                     <li class="dropdown">
-                        <a href="inscriClient" >s'inscrire</a>
+                        <a href="{{ path('bon_plan_inscriClient') }}" >s'inscrire</a>
                     </li>
                     <li class="dropdown">
-                        <a href="inscriEntreprise" > partenaire</a>
+                        <a href="{{ path('bon_plan_inscriEntreprise') }}" > partenaire</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" data-toggle="modal" data-target="#login-modal"> Login</a>
@@ -237,7 +288,6 @@
     <div class="clearfix"></div>
 </header>
 <!--header end-->
-
 <!--login poppup-->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      style="display: none;">
@@ -245,18 +295,9 @@
         <div class="loginmodal-container">
             <h1>Login</h1><br>
 
-            <form action="{{ path('login_check') }}" method="post">
-                <input type="text" name="_username" placeholder="Email">
-                <input type="password" name="_password" placeholder="mot de passe">
-                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-            </form>
-
-            <div class="login-help">
-                <a href="#">S'inscrire</a> - <a href="#">Mot de passe oublié?</a>
             </div>
         </div>
     </div>
-</div>
 
 {% block content %}
 
@@ -268,7 +309,7 @@
 <!--footer start-->
 <footer class="bg-darker u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30 ">
     <div class="container text-center text-sm">
-        <img class="retina u-MarginBottom50 u-sm-MarginBottom30" src="assets/imgs/logo-light.png" alt="">
+        <img class="retina u-MarginBottom50 u-sm-MarginBottom30" src="" alt="">
         <div class="social-links sl-default light-link solid-link circle-link colored-hover">
             <a href="#" class="facebook">
                 <i class="fa fa-facebook"></i>
@@ -316,70 +357,25 @@
 <!-- contact form -->
 <script src="{{ asset('front/assets/vendor/bootstrap-validator/validator.min.js') }}"></script>
 <script src="{{ asset('front/assets/build/js/mailer.js') }}"></script>
+
 <script>
-    <!--
-    StarOutUrl = "{{ asset('front/assets/imgs/Staroff.gif') }}";		//image par défaut
-    StarOverUrl = "{{ asset('front/assets/imgs/Staron.gif') }}";		//image d'une étoile sélectionnée
-    StarBaseId = 'Star';			//id de base des étoiles
-    NbStar = 5;			//nombre d'étoiles
+    function getValue(id)  {
+        var x= document.getElementById("input-"+id).value;
+        console.log(x);
+        document.getElementById('res-'+id).value=x;
+    }
+    function  solde() {
+        var x= document.getElementById('myRange').value;
+        document.getElementById('demo').innerHTML=x;
 
-    LgtStarBaseId = StarBaseId.lastIndexOf('');
-
-    function NotationSystem() {
-        for (i = 1; i < NbStar + 1; i++) {
-            var img = document.getElementById('Star' + i);
-
-            img.onclick = function () {
-                document.getElementById('resultat').innerHTML = 'Donner la note de ' + Name2Nb(this.id);
-            };
-            //Réaction lors du clic sur une étoile
-            //Evidemment, il faudrait compléter cette fonction pour la rendre vraiment utile.
-            //Par exemple, envoyer la note dans une base de donnée via un XMLHttpRequest.
-
-            // img.alt			='Donner la note de '+i;
-            //Texte au survol
-
-            img.src = StarOutUrl;
-            img.onmouseover = function () {
-                StarOver(this.id);
-            };
-            img.onmouseout = function () {
-                StarOut(this.id);
-            };
-        }
     }
 
-    function StarOver(Star) {
-        StarNb = Name2Nb(Star);
-        for (i = 1; i < (StarNb * 1) + 1; i++) {
-            document.getElementById('Star' + i).src = StarOverUrl;
-        }
-    }
-
-    function StarOut(Star) {
-        StarNb = Name2Nb(Star);
-        for (i = 1; i < (StarNb * 1) + 1; i++) {
-            document.getElementById('Star' + i).src = StarOutUrl;
-        }
-    }
-
-    function Name2Nb(Star) {
-        //Le survol d'une étoile ne nous permet pas de connaître directement son numéro
-        //Cette fonction extrait donc ce numéro à partir de l'Id
-        StarNb = Star.slice(LgtStarBaseId);
-        return (StarNb);
-    }
-    -->
 </script>
-<script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
 
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-</script>
+
+
+
+
 </body>
 
 </html>

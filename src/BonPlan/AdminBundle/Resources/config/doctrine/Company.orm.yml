@@ -1,0 +1,32 @@
+BonPlan\AdminBundle\Entity\Company:
+    type: entity
+    table: null
+    repositoryClass: BonPlan\AdminBundle\Repository\CompanyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        address:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: '100'
+        prenium:
+            type: boolean
+        imgUrl:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

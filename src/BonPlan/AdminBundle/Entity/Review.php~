@@ -1,0 +1,339 @@
+<?php
+
+namespace BonPlan\AdminBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Review
+ */
+class Review
+{
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="id_Client", referencedColumnName="id")
+     */
+    private $client;
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @return mixed
+     */
+    public function getClientName()
+    {
+        return $this->clientName;
+    }
+
+    /**
+     * @param mixed $clientName
+     */
+    public function setClientName($clientName)
+    {
+        $this->clientName = $clientName;
+    }
+
+    /**
+     * @var int
+     */
+    private $idCompany;
+
+    /**
+     * @var int
+     */
+    private $idClient;
+
+    /**
+     * @var string
+     */
+    private $content;
+
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var int
+     */
+    private $qualityPrice;
+
+    /**
+     * @var int
+     */
+    private $service;
+
+    /**
+     * @var int
+     */
+    private $satisfaction;
+
+    /**
+     * @var int
+     */
+    private $globalMark;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateOfVisit;
+
+    /**
+     * @var string
+     */
+    private $imgUrl;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idCompany
+     *
+     * @param integer $idCompany
+     *
+     * @return Review
+     */
+    public function setIdCompany($idCompany)
+    {
+        $this->idCompany = $idCompany;
+
+        return $this;
+    }
+
+    /**
+     * Get idCompany
+     *
+     * @return int
+     */
+    public function getIdCompany()
+    {
+        return $this->idCompany;
+    }
+
+    /**
+     * Set idClient
+     *
+     * @param integer $idClient
+     *
+     * @return Review
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * Get idClient
+     *
+     * @return int
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Review
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Review
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set qualityPrice
+     *
+     * @param integer $qualityPrice
+     *
+     * @return Review
+     */
+    public function setQualityPrice($qualityPrice)
+    {
+        $this->qualityPrice = $qualityPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get qualityPrice
+     *
+     * @return int
+     */
+    public function getQualityPrice()
+    {
+        return $this->qualityPrice;
+    }
+
+    /**
+     * Set service
+     *
+     * @param integer $service
+     *
+     * @return Review
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return int
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * Set satisfaction
+     *
+     * @param integer $satisfaction
+     *
+     * @return Review
+     */
+    public function setSatisfaction($satisfaction)
+    {
+        $this->satisfaction = $satisfaction;
+
+        return $this;
+    }
+
+    /**
+     * Get satisfaction
+     *
+     * @return int
+     */
+    public function getSatisfaction()
+    {
+        return $this->satisfaction;
+    }
+
+    /**
+     * Set globalMark
+     *
+     * @param integer $globalMark
+     *
+     * @return Review
+     */
+    public function setGlobalMark($globalMark)
+    {
+        $this->globalMark = $globalMark;
+
+        return $this;
+    }
+
+    /**
+     * Get globalMark
+     *
+     * @return int
+     */
+    public function getGlobalMark()
+    {
+        return $this->globalMark;
+    }
+
+    /**
+     * Set dateOfVisit
+     *
+     * @param \DateTime $dateOfVisit
+     *
+     * @return Review
+     */
+    public function setDateOfVisit($dateOfVisit)
+    {
+        $this->dateOfVisit = $dateOfVisit;
+
+        return $this;
+    }
+
+    /**
+     * Get dateOfVisit
+     *
+     * @return \DateTime
+     */
+    public function getDateOfVisit()
+    {
+        return $this->dateOfVisit;
+    }
+
+    /**
+     * Set imgUrl
+     *
+     * @param string $imgUrl
+     *
+     * @return Review
+     */
+    public function setImgUrl($imgUrl)
+    {
+        $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get imgUrl
+     *
+     * @return string
+     */
+    public function getImgUrl()
+    {
+        return $this->imgUrl;
+    }
+}

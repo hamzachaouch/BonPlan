@@ -26,16 +26,16 @@
             <div class="col-md-6">
                 <h1 class="u-Weight700">Inscrivez vous!</h1>
                 <p>Merci de bien remplir ce formulaire  </p>
-                <form class="row u-xs-MarginTop30 js-ContactForm" method="post" style="margin-top: 50px">
+                <form class="row u-xs-MarginTop30" method="post" action="{{ path('ajout_company') }}" style="margin-top: 50px">
                     <div class="col-md-12">
                         <div class="form-group select-wrapper">
-                            <select class="form-control">
+                            <select class="form-control" name="type">
                                 <option>Vous êtes?</option>
-                                <option>Restaurant</option>
-                                <option>Salon de Thé</option>
-                                <option>Hotel</option>
-                                <option>Cinéma</option>
-                                <option>Randonneur</option>
+                                <option value="Restaurant">Restaurant</option>
+                                <option value="Salon de Thé">Salon de Thé</option>
+                                <option value="Hotel">Hotel</option>
+                                <option value="Cinéma">Cinéma</option>
+                                <option value="Randonneur">Randonneur</option>
 
                             </select>
                         </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <textarea class="form-control" rows="4" placeholder="Description" name="message" ></textarea>
+                            <textarea class="form-control" rows="4" placeholder="Description" name="description" ></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
             <div class="col-md-6" style="margin-top: 171px">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Votre addresse" name="name" data-error="Vous devez entrer une addresse" required>
+                        <input type="text" class="form-control" placeholder="Votre addresse" name="address" data-error="Vous devez entrer une addresse" required>
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
@@ -76,14 +76,13 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <h3 class="u-Weight700 u-MarginTop0">  <label >  Devenir prenium
-                                <input type="checkbox" style="width: 20px ;height:20px"  name="">
+                                <input type="checkbox" style="width: 20px ;height:20px"  value="1" name="prenium[]">
                             </label>
                         </h3>
                     </div>
                 </div>
 
-
-
+                <a href="{{ path('delete_company',{'id':4}) }}"> delete </a>
 
                 <center>
                     <button type="submit" class="btn btn-black">Inscrivez vous</button>

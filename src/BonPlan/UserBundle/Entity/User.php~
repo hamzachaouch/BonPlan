@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Hamza
+ * Date: 14/02/2018
+ * Time: 10:15
+ */
+
+
+namespace BonPlan\UserBundle\Entity;
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BonPlanAdminBundle:Review")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $reviews;
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+}

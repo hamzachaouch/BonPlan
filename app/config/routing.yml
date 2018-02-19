@@ -1,3 +1,11 @@
+bon_plan_user:
+    resource: "@BonPlanUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /msg
+
 bon_plan_client:
     resource: "@BonPlanClientBundle/Resources/config/routing.yml"
     prefix:   /client

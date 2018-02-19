@@ -1,0 +1,26 @@
+BonPlan\AdminBundle\Entity\Ads:
+    type: entity
+    table: null
+    repositoryClass: BonPlan\AdminBundle\Repository\AdsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: boolean
+        dateBegin:
+            type: date
+            column: date_Begin
+        dateEnd:
+            type: string
+            length: 255
+            column: date_end
+        views:
+            type: integer
+        idEnt:
+            type: integer
+            column: id_ent
+    lifecycleCallbacks: {  }

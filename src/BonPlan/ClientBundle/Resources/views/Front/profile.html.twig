@@ -1,0 +1,133 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+<!-- start-->
+<div class="container u-PaddingTop100 u-xs-PaddingTop50">
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <!--about author start-->
+            <div class="u-BoxShadow100 u-MarginBottom100 u-xs-MarginBottom30">
+                <div class="Blurb u-Padding20 u-BorderRadius4 text-center">
+                    <div class="b-thumb">
+                        <img src="{{ company.imgUrl }}" alt=""/>
+                    </div>
+                    <h4>{{ company.name }}</h4>
+                    <p class="">{{ company.description }}</p>
+                    <div class="social-links sl-default u-MarginTop50 u-MarginTop30 u-MarginBottom30">
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--about author end-->
+
+            <!--review start-->
+            <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                <h5 class="text-uppercase u-Weight700">Avis ( nbr )</h5>
+                <hr/>
+                <div class="middle">
+                    <h4>Service</h4>
+
+                    <div class="bar-container" >
+                        <div class="bar-5" style="width: 60%;">60%</div>
+                    </div>
+                </div>
+                <div class="middle" style="margin-top: 10px">
+                    <h4>Qualité/Prix</h4>
+                    <div class="bar-container">
+                        <div class="bar-5" style="width: 40%;">40%</div>
+                    </div>
+
+                </div>
+                <div class="middle" style="margin-top: 10px">
+                    <h4>Ambiance</h4>
+                    <div class="bar-container">
+                        <div class="bar-5" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+
+            </div>
+            <!--review end-->
+            <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                <a  href="{{ path('page_review',{'id':company.id}) }}">
+                <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                    <span class="fa fa-bullhorn" style="color: white" ></span>Donner un avis</button>
+                </a>
+                <hr/>
+
+
+            </div>
+            <!--review end-->
+
+        </div>
+        <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
+            <!--blog post start-->
+            <div class="blog-post">
+                <div class="b-title">
+                    <a href="#" class="default-color ">Lifestyle</a> , <a href="#" class="default-color "> Fashion</a>
+                    <h1 class="u-MarginTop10 u-MarginBottom10">Awesome standard blog post</h1>
+                    <p class="u-MarginBottom30">By <a href="#">Jonathan Smith</a>   |   <a href="#">18 February 2017</a></p>
+                </div>
+                <div class="b-thumb u-MarginBottom30">
+                    <img src="{{ asset('front/assets/imgs/banner/ban1.jpg') }}" alt=""/>
+                </div>
+
+            </div>
+            <!--blog post end-->
+            <div>
+                <!--review start-->
+                <div class="u-Block u-MarginTop60">
+                    <h4 class="text-uppercase">Les Derniers Avis</h4>
+                    <hr>
+                    <ul class="media-list u-MarginTop50">
+                    {%  for review in reviews  %}
+                        <!-- Comment Item start-->
+                        <li class="media u-MarginBottom50">
+                            <a class="pull-left" href="#">
+                                <img class="media-object u-Rounded" src="{{ asset('front/assets/imgs/a2.jpg') }}" alt="" width="50" height="50">
+                            </a>
+                            <div class="media-body">
+                                <div class="u-MarginBottom10">
+                                    <div class="text-uppercase u-Weight600">
+                                        <a href="#"> {{ review.title }} </a>
+                                    </div>
+                                    {{ review.dateOfVisit|date('Y-m-d') }}
+                                </div>
+                                <div class=" text-gray u-Weight600">Titre: {{ review.title }}</div>
+                                <div class="text-gray">
+                                    {{ review.content }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="pull-right">
+                                <a href="#test-popup6" class="open-popup-link btn btn-info" style="width:150px;height:40px;align-content: center">Mdifier avis</a>
+                                <a href="{{ path('delete_review',{'id':review.id ,'idcompany':company.id}) }}" class="btn btn-danger" style="width:150px;height:40px;align-content: center">Supprimer avis</a>
+
+
+                            </div>
+
+                        </li>
+                        <hr>
+                    {% endfor %}
+                    </ul>
+
+                            <!--review end-->
+                </div>
+
+                </div>
+        </div>
+    </div>
+    <!-- end-->
+
+
+
+</div>
+
+
+    {% endblock %}

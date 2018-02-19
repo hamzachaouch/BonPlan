@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BonPlanClientBundle:Default:index.html.twig');
+        return $this->render('BonPlanClientBundle:Front:review.html.twig');
     }
 }
