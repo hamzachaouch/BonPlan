@@ -16,12 +16,20 @@ class CompanyController extends Controller
         $em = $this->getDoctrine()->getManager();
         $company = $em->getRepository('BonPlanAdminBundle:Company')->find($id);
         $reviews = $em->getRepository('BonPlanAdminBundle:Review')->findBy(['idCompany'=>$id]);
-
+        $i=1;
+        $somme=0;
+        $qp=0;$ser=0;$sa=0;
         foreach ($reviews as $review){
             $client =  $em->getRepository('BonPlanUserBundle:User')->find($review->getIdClient());
 
+            $somme=$somme+($review->getGlobalMark());
+            $ser=$qp+$review->getService();
+            $sa=$sa+$review->getSatisfaction();
+            $qp=$qp+$review->getQualityPrice();
+            $i++;
         }
-        return $this->render('BonPlanClientBundle:Front:profile.html.twig',array("company"=>$company,"reviews"=>$reviews));
+        return $this->render('BonPlanClientBundle:Front:profile.html.twig',array("company"=>$company,"reviews"=>$reviews
+        ,"noteglobale"=>($somme/$i),"noteservice"=>round(($ser/$i)*20),"s"=>$somme,"notesatisfaction"=>round(($sa/$i)*20),"noteqp"=>round(($qp/$i)*20)));
 
     }
     /**

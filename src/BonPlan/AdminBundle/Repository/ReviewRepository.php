@@ -10,5 +10,5 @@ namespace BonPlan\AdminBundle\Repository;
  */
 class ReviewRepository extends \Doctrine\ORM\EntityRepository
 {
-   
+
 }

@@ -13,15 +13,9 @@
                     <h4>{{ company.name }}</h4>
                     <p class="">{{ company.description }}</p>
                     <div class="social-links sl-default u-MarginTop50 u-MarginTop30 u-MarginBottom30">
-                        <a href="#">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
+                        <input class="rating rating-loading" size="sm" value="{{ noteglobale }}">
+
+
                     </div>
                 </div>
             </div>
@@ -29,26 +23,26 @@
 
             <!--review start-->
             <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
-                <h5 class="text-uppercase u-Weight700">Avis ( nbr )</h5>
+                <h5 class="text-uppercase u-Weight700">Avis ( {{ s }} )</h5>
                 <hr/>
                 <div class="middle">
                     <h4>Service</h4>
 
                     <div class="bar-container" >
-                        <div class="bar-5" style="width: 60%;">60%</div>
+                        <div class="bar-5" style="width: {{ noteservice }}%;">{{ noteservice}}%</div>
                     </div>
                 </div>
                 <div class="middle" style="margin-top: 10px">
                     <h4>Qualité/Prix</h4>
                     <div class="bar-container">
-                        <div class="bar-5" style="width: 40%;">40%</div>
+                        <div class="bar-5" style="width: {{ noteqp }}%;">{{ noteqp }}%</div>
                     </div>
 
                 </div>
                 <div class="middle" style="margin-top: 10px">
-                    <h4>Ambiance</h4>
+                    <h4>Satisfaction</h4>
                     <div class="bar-container">
-                        <div class="bar-5" style="width: 80%;">80%</div>
+                        <div class="bar-5" style="width: {{ notesatisfaction }}%;">{{ notesatisfaction }}%</div>
                     </div>
                 </div>
 
@@ -64,7 +58,20 @@
 
             </div>
             <!--review end-->
+            {% if is_granted('ROLE_USER') %}
 
+            <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                <h5 class="text-uppercase u-Weight700">Message</h5>
+
+                <a  href="{{ path('fos_message_thread_new') }}">
+                    <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                        <span class="fa fa-envelope" style="color: white" ></span>Contacter</button>
+                </a>
+                <hr/>
+
+
+            </div>
+            {% endif %}
         </div>
         <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
             <!--blog post start-->
@@ -106,11 +113,14 @@
                             </div>
                             <br>
                             <div class="pull-right">
-                                <a href="#test-popup6" class="open-popup-link btn btn-info" style="width:150px;height:40px;align-content: center">Mdifier avis</a>
+                                <a href="  {{ path('direction_edit_review', { 'id': review.id,'idcompany':company.id}) }}" class="btn btn-info" style="width:150px;height:40px;align-content: center">Mdifier avis</a>
                                 <a href="{{ path('delete_review',{'id':review.id ,'idcompany':company.id}) }}" class="btn btn-danger" style="width:150px;height:40px;align-content: center">Supprimer avis</a>
 
-
                             </div>
+
+
+
+
 
                         </li>
                         <hr>

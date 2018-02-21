@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="html">
 
@@ -276,7 +277,7 @@
                         <a href="{{ path('bon_plan_inscriEntreprise') }}" > partenaire</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="modal" data-target="#login-modal"> Login</a>
+                        <a href="{{ path('fos_user_security_login') }}"> Login</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -294,8 +295,9 @@
     <div class="modal-dialog">
         <div class="loginmodal-container">
             <h1>Login</h1><br>
+            {% block fos_user_content %}{% endblock %}
 
-            </div>
+        </div>
         </div>
     </div>
 

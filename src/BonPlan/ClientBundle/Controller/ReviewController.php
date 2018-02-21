@@ -60,28 +60,49 @@ class ReviewController extends Controller
     }
 
 
-    /**
-     * Displays a form to edit an existing review entity.
-     *
-     */
-    public function editAction(Request $request, $id)
+
+    public function editAction(Request $request)
     {
-        $em=$this->getDoctrine()->getManager();
-        $review = $em->getRepository('BonPlanAdminBundle:Review')->find($id);
-        $editForm = $this->createForm('PostBundle\Form\ReviewType', $review);
-        $editForm->handleRequest($request);
+        $review = new Review();
+        $em = $this->getDoctrine()->getManager();
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            
 
-            return $this->redirectToRoute('review_edit', array('id' => $review->getId()));
+        if($request ->isMethod('POST')) {
+
+            $reviewAncien = $em->getRepository('BonPlanAdminBundle:Review')->find($request->get('id'));
+
+            $review->setTitle($request->get('title'))
+                ->setContent($request->get('avis'))
+                ->setGlobalMark($request->get('globalmark'))
+                ->setIdCompany($request->get('idCompany'))
+                ->setIdClient($request->get('idClient'))
+                ->setDateOfVisit(date_create($request->get('date')))
+                ->setService($request->get('servicemark'))
+                ->setImgUrl($request->get('imgUrl'))
+                ->setQualityPrice($request->get('qpmark'))
+                ->setSatisfaction($request->get('satisfactionmark'));
+            $idcompany=$request->get('idcompany');
+
+            $em->remove($reviewAncien);
+            $em->flush();
+            $em->persist($review);
+            $em->flush();
+
+
+
+            return $this->redirectToRoute('company_page', array('id'=>$idcompany));
         }
+        return $this->redirectToRoute('bon_plan_client_homepage');
 
-        return $this->redirectToRoute('bon_plan_resultat', array(
-            'review' => $review,
-            'edit_form' => $editForm->createView(),
+    }
 
-        ));
+    public function directionEditAction($id,$idcompany)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $review = $em->getRepository('BonPlanAdminBundle:Review')->find($id);
+        return $this->render('BonPlanClientBundle:Front:modiferReview.html.twig', array('review'=>$review ,'c'=>$idcompany));
+
     }
 
     /**
@@ -90,9 +111,9 @@ class ReviewController extends Controller
      */
     public function deleteAction($id,$idcompany)
     {
+
         $em = $this->getDoctrine()->getManager();
         $review = $em->getRepository('BonPlanAdminBundle:Review')->find($id);
-
         $em->remove($review);
         $em->flush();
 

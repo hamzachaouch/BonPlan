@@ -14,8 +14,12 @@ ConsulterEntreprise:
     path:     /ConsulterE
     defaults: { _controller: BonPlanAdminBundle:back:ConsulterEntreprise }
 ConsulterAvis:
-    path:     /ConsulterA
+    path:     /ConsulterA/{id}
     defaults: { _controller: BonPlanAdminBundle:back:ConsulterAvis }
+SupprimerAvis:
+    path:     /SupprimerAvis/{id}/{idcompany}
+    defaults: { _controller: BonPlanAdminBundle:back:RemoveAvis }
+
 Statistique:
     path:     /Stat
     defaults: { _controller: BonPlanAdminBundle:back:Statistique }

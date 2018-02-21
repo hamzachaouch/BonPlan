@@ -34,6 +34,10 @@ edit_review:
     path:     /editReview
     defaults: { _controller: BonPlanClientBundle:Review:edit }
 
+direction_edit_review:
+    path:     /dire/{id}/{idcompany}
+    defaults: { _controller: BonPlanClientBundle:Review:directionEdit }
+
 page_review:
     path:     /pageReview/{id}
     defaults: { _controller: BonPlanClientBundle:Review:donnerReview }

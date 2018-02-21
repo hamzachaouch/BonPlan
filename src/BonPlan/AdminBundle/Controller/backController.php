@@ -35,11 +35,24 @@ class backController extends Controller
     }
     public function ConsulterEntrepriseAction()
     {
-        return $this->render('BonPlanAdminBundle:entreprise:consulter.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $reviews = $em->getRepository('BonPlanAdminBundle:Company')->findAll();
+        return $this->render('BonPlanAdminBundle:entreprise:consulter.html.twig',array("Companies"=>$reviews,"idcompany"=>null));
     }
-    public function ConsulterAvisAction()
-    {
-        return $this->render('BonPlanAdminBundle:avis:consulter.html.twig');
+    public function ConsulterAvisAction($id)
+    {   $idcompany=$id;
+        $em = $this->getDoctrine()->getManager();
+        $reviews = $em->getRepository('BonPlanAdminBundle:Review')->findBy(['idClient'=>$id]);
+        return $this->render('BonPlanAdminBundle:avis:liste.html.twig',array("reviews"=>$reviews,'idcompany'=>$idcompany));
+    }
+    public function RemoveAvisAction($id,$idcompany){
+        $em = $this->getDoctrine()->getManager();
+        $review = $em->getRepository('BonPlanAdminBundle:Review')->find($id);
+
+        $em->remove($review);
+        $em->flush();
+
+        return $this->redirectToRoute('ConsulterAvis', array('id'=>$idcompany));
     }
     public function StatistiqueAction()
     {

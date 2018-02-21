@@ -2,6 +2,54 @@
 {% extends "::base.html.twig" %}
 
 
-{% block aaa %}
-    Consulter Entreprise
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste d'entreprises</h3>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="rechercher">
+
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Entrprise</th>
+                            <th>Type</th>
+                            <th>Email</th>
+                            <th>Description</th>
+                            <th>Adresse</th>
+                            <th>Consulter</th>
+                        </tr>
+                        {% for c in Companies %}
+                            <tr>
+                                <td>{{ c.name }}</td>
+                                <td>{{ c.type }}</td>
+                                <td>{{ c.email }}</td>
+                                <td>{{ c.description }}</td>
+                                <td>{{ c.address }}</td>
+                                <td><a href="{{ path('ConsulterAvis',{'id':c.id}) }}"><span class="label label-success">Les Avis</span></a></td>
+
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+
 {% endblock %}
