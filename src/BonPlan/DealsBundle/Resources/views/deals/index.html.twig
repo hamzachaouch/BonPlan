@@ -1,0 +1,132 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+
+
+    <!--page title start-->
+    <section class="ImageBackground ImageBackground--overlay v-align-parent u-height350 u-BoxShadow40" data-overlay="0" id="top">
+        <div class="ImageBackground__holder">
+            <img src="{{ asset ('front/assets/imgs/banner/ban13.jpg')}}" alt=""/>
+        </div>
+        <div class="v-align-child">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 text-center">
+                        <h1 class="text-uppercase u-Margin0 u-Weight700" style="color: blanchedalmond">Les Deals</h1>
+                        <ol class="breadcrumb u-MarginTop10 u-MarginBottom0">
+                            <li><a style="color: blanchedalmond" href="{{ path('bon_plan_home') }}">Acceuil</a></li>
+                            <li class="active" style="color: blanchedalmond"><span>Deals</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--page title end-->
+
+    <!-- start-->
+    <div class="container u-PaddingTop100 u-xs-PaddingTop50">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+
+
+                <!--widget start-->
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <h5 class="text-uppercase u-Weight700">Critères de recherche</h5>
+                    <hr/>
+
+                    <div class="media u-MarginBottom30">
+
+                        <form>
+                            <center>
+                                <div class="slidecontainer">
+                                    <label for="edit-villes" class="control-label">Budget</label>
+
+                                    <input onchange="solde();" type="range" min="0" max="3000" value="50" class="slider" id="myRange">
+                                    <br>
+                                    <span id="demo">50</span></p>
+                                </div>
+                            </center>
+
+
+                    </div>
+
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ville" name="name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <input class="form-control form-control--white"
+                                   placeholder="La Date de votre Sortie" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                   type="date">
+                        </div>
+                    </div>
+                    <div class="media u-MarginBottom30">
+
+                        <div class="form-group select-wrapper">
+                            <select class="form-control">
+                                <option>Ville</option>
+                                <option>Grand Tunis</option>
+                                <option>Nabeul</option>
+                                <option>Ariana</option>
+                                <option>Bizerte</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="media u-MarginBottom30">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-search" ></span> Recherche</button>
+                        </div>
+
+                    </div>
+
+                    </form>
+                </div>
+                <!--widget end-->
+            </div>
+
+            <!--liste entreprise start-->
+
+            <div class="col-md-9">
+
+                <div class="row text-center">
+                    {% for d in deals %}
+                        <div class="col-md-5 col-sm-5 u-MarginBottom35">
+                            <div class="u-BoxShadow100">
+                                <div class="Blurb u-InlineBlock">
+
+                                    <a href="{{ path('deals_show',{'id':d.id}) }}" class="hover-img">
+                                        <figure>
+                                            <img style="width: 300px;height: 200px;" class="img-responsive" src="{{ d.imgUrl}}" alt="...">
+                                            <span><b>Détails</b></span>
+                                        </figure>
+                                    </a>
+
+                                    <h4 class="u-MarginTop25 u-MarginBottom0">{{ d.name }}<br>
+
+
+                                    <p class="text-gray"><b> Disponible jusqu' au <br>{{d.datefin|date('Y-m-d') }}</b></p>
+                                     <h1><span style="color: #FA0048;" href="#"><i class="fa fa-dollar" aria-hidden="true"></i>{{ d.price }}</span>
+                                    </h1>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+            <!--liste entreprise end-->
+
+
+
+        </div>
+    </div>
+    </div>
+    <!-- end-->
+{% endblock %}

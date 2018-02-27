@@ -48,6 +48,8 @@
 
             </div>
             <!--review end-->
+            {% if  is_granted('ROLE_CLIENT') %}
+
             <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
                 <a  href="{{ path('page_review',{'id':company.id}) }}">
                 <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
@@ -57,20 +59,37 @@
 
 
             </div>
+            {% endif %}
             <!--review end-->
-            {% if is_granted('ROLE_USER') %}
 
             <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
                 <h5 class="text-uppercase u-Weight700">Message</h5>
 
                 <a  href="{{ path('fos_message_thread_new') }}">
                     <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
-                        <span class="fa fa-envelope" style="color: white" ></span>Contacter</button>
+                        <span class="fa fa-envelope" style="color: white" >  </span>Message</button>
                 </a>
                 <hr/>
 
 
             </div>
+            {% if is_granted('ROLE_COMPANY') %}
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <h5 class="text-uppercase u-Weight700">Deals</h5>
+
+                    <a  href="{{ path('deals_new',{'id':company.id}) }}">
+                        <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                            <span class="fa fa-check" style="color: white" >   </span>Ajouter un Deal</button>
+                    </a>
+                    <br>
+                    <a  href="{{ path('deals_company_show',{'idcompany':company.id})}}">
+                        <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                            <span class="fa fa-check" style="color: white" >   </span>Consulter vos Deal</button>
+                    </a>
+                    <hr/>
+
+
+                </div>
             {% endif %}
         </div>
         <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">

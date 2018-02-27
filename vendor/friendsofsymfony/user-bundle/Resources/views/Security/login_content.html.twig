@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html class="html">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('front/assets/imgs/faviconBP.png') }}" />
+
+    <title>{% block title %}Bon Plan{% endblock %}</title>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/bootsnav/css/bootsnav.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/custom-icon/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/owl.carousel2/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/vendor/swiper/css/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('front/assets/css/main.min.css') }}">
+    <!-- endinject -->
+    <!-- rating stars assets -->
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css') }}" />
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js') }}"></script>
+
+
+
+
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #FA0048;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+        /****** LOGIN MODAL ******/
+        .loginmodal-container {
+            padding: 30px;
+            max-width: 350px;
+            width: 100% !important;
+            background-color: #F7F7F7;
+            margin: 0 auto;
+            border-radius: 2px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            font-family: roboto;
+        }
+
+        .loginmodal-container h1 {
+            text-align: center;
+            font-size: 2em;
+            font-family: roboto;
+            font-weight: bold;
+        }
+
+        .loginmodal-container input[type=submit] {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .loginmodal-container input[type=text], input[type=password] {
+            height: 44px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            /* border-radius: 2px; */
+            padding: 0 8px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        .avis-modal-container input[type=text] {
+            height: 44px;
+            font-size: 16px;
+            width: 75%;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-top: 1px solid #c0c0c0;
+            /* border-radius: 2px; */
+            padding: 0 8px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+            border: 1px solid #b9b9b9;
+            border-top: 1px solid #a0a0a0;
+            -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .loginmodal {
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 700;
+            height: 36px;
+            padding: 0 8px;
+            /* border-radius: 3px; */
+            /* -webkit-user-select: none;
+              user-select: none; */
+        }
+
+        .loginmodal-submit {
+            /* border: 1px solid #3079ed; */
+            border: 0px;
+            color: #fff;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+            background-color: #FA0048;
+            padding: 17px 0px;
+            font-family: roboto;
+            font-size: 14px;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+
+        .loginmodal-submit:hover {
+            /* border: 1px solid #2f5bb7; */
+            border: 0px;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+            background-color: #FA0048;
+            /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+
+        .loginmodal-container a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 400;
+            text-align: center;
+            display: inline-block;
+            opacity: 0.6;
+            transition: opacity ease 0.5s;
+        }
+
+        .login-help {
+            font-size: 12px;
+        }
+
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 90%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        /* Individual bars */
+        .bar-5 { height: 18px; background-color: #FA0048;}
+
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+        @media (max-width: 400px) {
+            .side, .middle {
+                width: 100%;
+            }
+            .right {
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<!--header start-->
+<header id="header" class="Sticky">
+    <!-- Start Navigation -->
+    <nav class="navbar navbar-default navbar-fixed no-background bootsnav">
+
+        <div class="container">
+            <!-- Start Atribute Navigation -->
+            <div class="attr-nav">
+                <ul>
+
+                    <li style="left: 100px" class="buy-btn hidden-xs hidden-sm"><a href="#">
+                            <span class="btn btn-sm btn-primary n-MarginTop5 text-uppercase">
+
+                                Se connecter via Facebook <i class="fa fa-facebook-official" style="font-size:15px;color:white"></i>
+                        </span></a></li>
+
+                </ul>
+            </div>
+            <!-- End Atribute Navigation -->
+
+            <!-- Start Header Navigation -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="home">
+                    <img src="{{ asset('front/assets/imgs/logo1.png') }}" class="logo logo-display" alt="">
+                    <img src="{{ asset('front/assets/imgs/logo2.png') }}" class="logo logo-scrolled" alt="">
+                </a>
+            </div>
+            <!-- End Header Navigation -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" data-in="" data-out="">
+                    <li class="dropdown">
+                        <a href="{{ path('bon_plan_home') }}"  >Accueil</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Que cherchez vous?</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Soirée'}) }}">Soirée</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Randonneur'}) }}">Randonnée</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Cinémas'}) }}">Cinémas</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Salon de Thé'}) }}">Salon de Thé</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Restaurant'}) }}">Restaurants</a></li>
+                            <li><a href="{{ path('bon_plan_resultat',{'type':'Hotel'}) }}">HÔTELS</a></li>
+                            <li><a href="#promos">Promos Disponibles</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="" >Contact</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{ path('bon_plan_inscriClient') }}" >s'inscrire</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{ path('bon_plan_inscriEntreprise') }}" > partenaire</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="modal" data-target="#login-modal"> Login</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+
+
+    </nav>
+    <!-- End Navigation -->
+    <div class="clearfix"></div>
+</header>
+<!--header end-->
+
+<!--hero section start-->
+<section class=" ImageBackground ImageBackground--overlay u-height700- js-Parallax" data-overlay="5">
+    <div class="ImageBackground__holder">
+        <img src="{{ asset('front/assets/imgs/banner/ban1.jpg') }}" alt=""/>
+    </div>
+    <div class="container u-vCenter- u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30">
+        <div class="row  text-left u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30">
+            <div class="col-md-3"></div>
+
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <div class="bg-black-transparent u-BorderRadius4 u-BoxShadow40 u-Padding10 col-md-5">
+
+                <div class="row u-PaddingTop30 u-PaddingLeft30 u-PaddingRight30">
+                    <div class="col-md-12">
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
+
+                            <h3 class="text-white u-MarginTop0">Login Now</h3>
+                            <div class="form-group">
+                                <label for="username">{{ 'security.login.username'|trans }}</label>
+
+                                <input class="form-control form-control--white" placeholder="Nom ou email"
+                                       type="text" id="username" name="_username" value="{{ last_username }}" required="required" >
+                            </div>
+                            <div class="form-group">
+                                <label for="password">{{ 'security.login.password'|trans }}</label>
+
+                                <input class="form-control form-control--white"
+                                       type="password" id="password" name="_password" required="required">
+                            </div>
+                            <input  type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label class="text-white" for="remember_me">Se rappeler de moi</label>
+
+
+                            <div class="form-group">
+                                <button type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"
+                                        class="btn btn-primary btn-block">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+
+<!-- inject:js -->
+<script src="{{ asset('front/assets/vendor/jquery/jquery-1.12.0.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/bootsnav/js/bootsnav.js') }}"></script>
+<script src="{{asset ('front/assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/waypoints/sticky.min.js')}}"></script>
+<script src="{{ asset('front/assets/vendor/headroom/headroom.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/jquery.countTo/jquery.countTo.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/owl.carousel2/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/jquery.appear/jquery.appear.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/imagesloaded/imagesloaded.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/swiper/js/swiper.min.js') }}"></script>
+<script src="{{ asset('front/assets/js/main.js') }}"></script>
+<!-- endinject -->
+
+<!-- contact form -->
+<script src="{{ asset('front/assets/vendor/bootstrap-validator/validator.min.js') }}"></script>
+<script src="{{ asset('front/assets/build/js/mailer.js') }}"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

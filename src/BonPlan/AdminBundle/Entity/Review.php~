@@ -10,11 +10,6 @@ class Review
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="id_Client", referencedColumnName="id")
-     */
-    private $client;
-    /**
      * @var int
      */
     private $id;

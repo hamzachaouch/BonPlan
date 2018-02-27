@@ -29,3 +29,6 @@ Calendrie:
 Mail:
     path:     /Mail
     defaults: { _controller: BonPlanAdminBundle:back:Mail }
+deals:
+    path:     /Deals
+    defaults: { _controller: BonPlanAdminBundle:back:deal }

@@ -1,0 +1,4 @@
+bon_plan_deals_deals:
+    resource: "@BonPlanDealsBundle/Resources/config/routing/deals.yml"
+    prefix:   /deals
+

@@ -1,0 +1,98 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+    <!-- start-->
+    <div class="container u-PaddingTop100 u-xs-PaddingTop50" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <!--about author start-->
+                <div class="u-BoxShadow100 u-MarginBottom100 u-xs-MarginBottom30">
+                    <div class="Blurb u-Padding20 u-BorderRadius4 text-center">
+                        <div class="b-thumb">
+                            <img src="{{ deal.imgUrl }}" alt=""/>
+                        </div>
+                        <h4>{{ deal.name }}</h4>
+                        <div class="social-links sl-default u-MarginTop50 u-MarginTop30 u-MarginBottom30">
+                            <input class="rating rating-loading" size="sm" value="{{ deal.note }}">
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--about author end-->
+                {% if is_granted('ROLE_COMPANY') %}
+
+                <a  href="{{ path('deals_edit',{'id':deal.id}) }}">
+                    <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                        <span class="fa fa-check" style="color: white" >   </span>Modifer le Deal</button>
+                </a><br>
+                <a  href="{{ path('deals_delete',{'id':deal.id}) }}">
+                    <button style="width: 100%" type="submit" class="btn btn-primary btn-block ">
+                        <span class="fa fa-trash" style="color: white" >   </span>Supprimer le Deal</button>
+                </a>
+                {% endif %}
+                <!--review start-->
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <center><h4 class="text-uppercase u-Weight700">Nombre d'Acheteurs <span style="color: #FA0048"> {{ deal.nbrClients }}   <span class="fa fa-users"></span></span></h4>
+                    <hr>
+                    <a class="btn btn-primary text-uppercase u-MarginBottom10 u-LetterSpacing2 "
+                       href="{{path('deals_coupon',{'id':deal.id}) }}">Génerer coupon</a>
+                    </center>
+                    <hr>
+                    <h4 style="color: #FA0048">NB</h4>
+                    <p>
+                        Le Numéro que vous recuperiez (N° du Coupon) vous permez de profiter des promotions effectuées spécialement pour nos internautes.
+                        Merci pour votre fédiliter.
+                    </p>
+                </div>
+
+
+            </div>
+            <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
+                                <h1 class="u-MarginTop0 u-sm-MarginTop30 u-Weight700">{{ deal.name }}</h1>
+                                <h3 style="color: #FA0048" class="u-MarginTop0 u-sm-MarginTop30 u-Weight700">{{ deal.price }} DT </h3>
+                                <p class="u-MarginBottom30 u-xs-MarginBottom30 ">
+                                    {{ deal.description }}
+                                </p>
+                                <p class="u-MarginBottom30 u-xs-MarginBottom30 ">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Lid est laborum dolo rumes fugats untras. </p>
+                                <p class=""> Rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+
+                                <div class="row">
+                                    <div class="col-sm-6 u-MarginTop50">
+                                        <p><i class="Icon Icon-map Icon--32px text-primary" aria-hidden="true"></i></p>
+                                        <h4>Où </h4>
+                                        <p class="text-uppercase">
+                                            {{ deal.address }}
+                                        </p>
+                                        <p>La Tunisie</p>
+                                    </div>
+                                    <div class="col-sm-6 u-MarginTop50">
+                                        <p><i class="Icon Icon-clock Icon--32px text-primary" aria-hidden="true"></i></p>
+                                        <h4>Quand</h4>
+                                        <p>
+                                            {{ deal.horraire }}
+
+                                        </p>
+                                        <p> Du {{ deal.datedebut|date('m-d') }} jusqu'au {{deal.datefin|date('d-m-Y') }} </p>
+                                    </div>
+                                </div>
+
+                                <h1 class="u-MarginTop0 u-sm-MarginTop30 u-Weight700">Programme</h1>
+                                <p class="u-MarginBottom30 u-xs-MarginBottom30 ">{{ deal.programme }} </p>
+
+
+            </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+        <!-- end-->
+    </div>
+
+
+{% endblock %}

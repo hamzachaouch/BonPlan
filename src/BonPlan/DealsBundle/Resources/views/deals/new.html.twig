@@ -1,0 +1,101 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+    <!-- start-->
+    <div class="container u-PaddingTop100 u-xs-PaddingTop50" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <!--about author start-->
+                <div class="u-BoxShadow100 u-MarginBottom100 u-xs-MarginBottom30">
+                    <div class="Blurb u-Padding20 u-BorderRadius4 text-center">
+                        <div class="b-thumb">
+                            <img src="https://www.advantagecarrentals.com/wp-content/uploads/2016/09/Best-deals-simcard.jpg" alt=""/>
+                        </div>
+                        <h1>Ajouter un Deal</h1>
+
+                    </div>
+                </div>
+
+                <!--review start-->
+                <div class="widget u-MarginBottom100 u-xs-MarginBottom30">
+                    <ul>
+                        <li>
+                            <a href="{{ path('deals_index') }}">Back to the list</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
+
+                {{ form_start(form) }}
+
+                <div class="form-group">
+                    {{ form_row(form.name,{'attr': {'class': 'form-control','placeholder':'Titre'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(form.description,{'attr': {'class': 'form-control','placeholder':'Description'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.price,{'attr': {'class': 'form-control','placeholder':'prix'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.datedebut,{'attr': {'class': 'form-control','placeholder':'Date debut '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.datefin,{'attr': {'class': 'form-control','placeholder':'Date fin '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.address,{'attr': {'class': 'form-control','placeholder':'Adresse '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.categorie,{'attr': {'class': 'form-control','placeholder':'Catégorie '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.programme,{'attr': {'class': 'form-control','placeholder':'Programme '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.telephone,{'attr': {'class': 'form-control','placeholder':'N°Tel '}}) }}
+
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.horraire,{'attr': {'class': 'form-control','placeholder':'7j/7 de 8h à 20h '}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_row(form.imgUrl) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.nbrclients,{'attr': {'class': 'form-control'},'value' : 0}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.note,{'attr': {'class': 'form-control'},'value' : 0}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.idCompany,{'attr': {'class': 'form-control'}}) }}
+                </div>
+                <input type="submit" value="Ajouter" class="btn btn-primary btn-block" />
+                {{ form_end(form) }}
+                <br>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+    </div>
+    <!-- end-->
+    </div>
+
+
+{% endblock %}

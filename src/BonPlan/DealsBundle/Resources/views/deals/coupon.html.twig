@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Coupon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('front/assets/imgs/faviconBP.png') }}" />
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js') }}"></script>
+    <script type="text/javascript">
+        function imprimer_page(){
+            window.print();
+        }
+        function alertfunction(){
+            var txt;
+            if (confirm("Vous Confirmez?" )) {
+                $(document).ready($(function () {
+                        $.ajax({
+                            url : "{{ path('ajax_deal_insertion', {'id':deal.id,'username':app.user.email,'key':key}) }}"
+                        }).done(function (response) {
+                            document.getElementById('here').innerHTML="Confirmation éffectuée";
+                        });
+                    }));
+
+            }else {
+                txt ="Confirmation non effectuée";
+                document.getElementById('here').innerHTML=txt;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-6">
+
+   </div>
+
+<h3 style="margin-left: 100px;margin-top: 25px">
+    <img src="{{ asset('front/assets/imgs/logo2.png') }}"  style="margin-left: 270px;margin-top: 35px">
+</h3>
+
+</div>
+<div class="row">
+
+    <H1 style="text-align: center;"> COUPON</H1>
+
+    <h5 style="text-align: center;"><b><u>Notez Bien:</u></b></h5>
+    <p style="text-align: center;">
+        Ce coupon va vous permettre de bénificier de la Promotion choisite
+    </p>
+</div>
+<div style="margin-left: 450px">
+    <table >
+        <tr>
+            <td>Nom Client:</td><td> <b> {{ app.user.username }} </b></td>
+        </tr>
+
+        <tr>
+            <td>Email:</td><td><b>{{ app.user.email }}</b></td>
+        </tr>
+    </table>
+</div>
+<center><hr style="width: 600px"></center>
+<div style="margin-left: 450px">
+    <table>
+        <tr>
+            <td> Nom de La Promotion: </td><td><b>{{ deal.name }}</b></td>
+        </tr>
+        <tr>
+            <td> Date debut de La Promotion: </td><td><b>{{ deal.datedebut|date('Y-m-d') }}</b></td>
+        </tr>
+        <tr>
+            <td> Date fin de La Promotion: </td><td><b>{{ deal.datedebut|date('Y-m-d') }}</b></td>
+        </tr>
+        <tr>
+            <td> Code Coupon: </td><td><h1>{{ key }}</h1></td>
+        </tr>
+    </table>
+</div>
+<center><hr style="width: 600px"></center>
+
+<div style="margin-left: 450px">
+
+</div>
+<center>
+    <h1><i>Merci de nous faire confiance</i></h1>
+
+    <i><h3 style="color: red" id="here"></h3></i>
+    <h5 style="color: red" id="under"></h5>
+
+    <form>
+        <input class="uppercase" style="color: black;width: 250px;height:50px;size: 18px;" id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer" />
+        <input onclick="alertfunction();"
+               type="button" id="btnSend" value="CONFIRMER" style="color: black;width: 250px;height:50px;size: 18px;">
+    </form>
+
+    <br>
+    <a href="{{ path('deals_index') }}"> Retourner à L'Acceuil</a>
+    <div id="under"></div>
+</center>
+
+
+</body>
+</html>

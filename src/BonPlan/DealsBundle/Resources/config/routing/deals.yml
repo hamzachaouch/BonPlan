@@ -1,0 +1,39 @@
+deals_index:
+    path:     /
+    defaults: { _controller: "BonPlanDealsBundle:Deals:index" }
+    methods:  GET
+
+deals_show:
+    path:     /{id}/show
+    defaults: { _controller: "BonPlanDealsBundle:Deals:show" }
+    methods:  GET
+
+deals_new:
+    path:     /new/{id}
+    defaults: { _controller: "BonPlanDealsBundle:Deals:new" }
+    methods:  [GET, POST]
+
+deals_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BonPlanDealsBundle:Deals:edit" }
+    methods:  [GET, POST]
+
+deals_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BonPlanDealsBundle:Deals:delete" }
+    methods:  [POST,GET]
+
+deals_coupon:
+    path:     /generateCoupon/{id}
+    defaults: { _controller: "BonPlanDealsBundle:Deals:generateKey" }
+    methods:  [GET]
+
+ajax_deal_insertion:
+    path:  /insertion/{id}/{username}/{key}
+    defaults: { _controller: "BonPlanDealsBundle:Deals:ajaxInsert" }
+    methods:  [GET]
+
+deals_company_show:
+    path:     /showcompanydeals/{idcompany}
+    defaults: { _controller: "BonPlanDealsBundle:Deals:showDealCompany" }
+    methods:  GET

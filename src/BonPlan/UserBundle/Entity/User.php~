@@ -8,6 +8,7 @@
 
 
 namespace BonPlan\UserBundle\Entity;
+use FOS\MessageBundle\Model\ParticipantInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
+class User extends BaseUser implements ParticipantInterface
 {
     /**
      * @ORM\Id
@@ -24,18 +25,11 @@ class User extends BaseUser
      */
     protected $id;
 
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="BonPlanAdminBundle:Review")
-     * @ORM\JoinColumn(name="id", referencedColumnName="id")
-     */
-    private $reviews;
-
-
+    
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
 }

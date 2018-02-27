@@ -66,4 +66,11 @@ class backController extends Controller
     {
         return $this->render('BonPlanAdminBundle:Default:mail.html.twig');
     }
+    public function dealAction(){
+        $em = $this->getDoctrine()->getManager();
+        $deals = $em->getRepository('BonPlanDealsBundle:Deals')->findAll();
+
+        return $this->render('BonPlanAdminBundle:Default:listDeals.html.twig',array('deals'=>$deals));
+
+    }
 }

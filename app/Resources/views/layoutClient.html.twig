@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/animate.css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/vendor/swiper/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/assets/css/main.min.css') }}">
+    <!-- new -->
+
+
+
+
+    <!-- new -->
+
     <!-- endinject -->
     <!-- rating stars assets -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}"></script>
@@ -240,7 +247,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="home">
+                <a class="navbar-brand" href="{{ path('bon_plan_home') }}">
                     <img src="{{ asset('front/assets/imgs/logo1.png') }}" class="logo logo-display" alt="">
                     <img src="{{ asset('front/assets/imgs/logo2.png') }}" class="logo logo-scrolled" alt="">
                 </a>
@@ -262,14 +269,21 @@
                             <li><a href="{{ path('bon_plan_resultat',{'type':'Salon de Thé'}) }}">Salon de Thé</a></li>
                             <li><a href="{{ path('bon_plan_resultat',{'type':'Restaurant'}) }}">Restaurants</a></li>
                             <li><a href="{{ path('bon_plan_resultat',{'type':'Hotel'}) }}">HÔTELS</a></li>
+                            <li><a href="{{ path('deals_index') }}">DEALS</a></li>
+
                             <li><a href="#promos">Promos Disponibles</a></li>
 
                         </ul>
                     </li>
-
-                    <li class="dropdown">
+                    {% if is_granted('ROLE_COMPANY') or is_granted('ROLE_CLIENT') %}
+                        <li class="dropdown">
+                            <a href="{{ path('company_page',{'id':app.user.id}) }}" >Profile</a>
+                        </li>
+                    {% else %}
+                        <li class="dropdown">
                         <a href="" >Contact</a>
                     </li>
+                    {% endif %}
                     <li class="dropdown">
                         <a href="{{ path('bon_plan_inscriClient') }}" >s'inscrire</a>
                     </li>
@@ -277,7 +291,13 @@
                         <a href="{{ path('bon_plan_inscriEntreprise') }}" > partenaire</a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{ path('fos_user_security_login') }}"> Login</a>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path("fos_user_security_login") }}" > Login</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+{% block content %}
+    <div class="col-xs-12">
+    <div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Liste des Deals</h3>
+
+        <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control pull-right" placeholder="rechercher">
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Contenu</th>
+                <th></th>
+
+            </tr>
+            {% for d in deals %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.name }}</td>
+                    <td>{{ d.price }} DT</td>
+                    <td>{{ d.description }}</td>
+                    <td><a href="{{ path('deals_delete',{'id':d.id}) }}"><span class="label label-danger">Supprimer</span></a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

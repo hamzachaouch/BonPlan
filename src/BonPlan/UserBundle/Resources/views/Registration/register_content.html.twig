@@ -1,13 +1,48 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{% extends "::base.html.twig" %}
+{% extends "::layoutClient.html.twig" %}
 
 
-{% block aaa %}
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+{% block content %}
+
+
+
+<!--inscription section start-->
+<section class=" ImageBackground ImageBackground--overlay u-height700- js-Parallax" data-overlay="5">
+    <div class="ImageBackground__holder">
+        <img src="{{ asset('front/assets/imgs/banner/ban11.jpg') }}" alt=""/>
     </div>
-    test
-{{ form_end(form) }}
-   {% endblock %}
+    <div class="container u-vCenter- u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30">
+        <div class="col-md-5">
+            <div class="bg-black-transparent u-BorderRadius4 u-BoxShadow40 u-Padding10">
+                <div class="row u-PaddingTop30 u-PaddingLeft30 u-PaddingRight30">
+                    <div class="col-md-12">
+                        <form method="post" action=" {{ path('fos_user_registration_register') }}">
+                            <h3 class="text-white u-MarginTop0" >Inscrivez-vous </h3>
+                            <div class="form-group">
+                                <input name="username" class="form-control form-control--white" placeholder="Nom & prenom" type="text">
+                            </div>
+                            <div class="form-group">
+                                <input name="email" class="form-control form-control--white" placeholder="E-mail" type="text">
+                            </div>
+
+
+                            <div class="form-group">
+                                <input name="plainPassword" class="form-control form-control--white" placeholder="Mot de passe" type="password">
+                            </div>
+                            <div class="form-group">
+                                <input name="plainPassword  " class="form-control form-control--white" placeholder="Confirmez Mot de passe" type="password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary btn-block">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!--inscription section end-->
+
+{% endblock %}

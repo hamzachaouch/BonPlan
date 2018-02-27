@@ -1,0 +1,58 @@
+{% extends 'layoutClient.html.twig' %}
+{% block content %}
+    <!-- start-->
+    <div class="container u-PaddingTop100 u-xs-PaddingTop50" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <!--about author start-->
+                <div class="u-BoxShadow100 u-MarginBottom100 u-xs-MarginBottom30">
+                    <div class="Blurb u-Padding20 u-BorderRadius4 text-center">
+                        <h1>Vos Deals</h1>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-8 u-PaddingLeft100 u-xs-PaddingLeft20">
+
+
+
+                <div class="row text-center">
+                    {% for d in deals %}
+                        <div class="col-md-5 col-sm-5 u-MarginBottom35">
+                            <div class="u-BoxShadow100">
+                                <div class="Blurb u-InlineBlock">
+
+                                    <a href="{{ path('deals_show',{'id':d.id}) }}" class="hover-img">
+                                        <figure>
+                                            <img style="width: 300px;height: 200px;" class="img-responsive" src="{{ d.imgUrl}}" alt="...">
+                                            <span><b>Détails</b></span>
+                                        </figure>
+                                    </a>
+
+                                    <h4 class="u-MarginTop25 u-MarginBottom0">{{ d.name }}<br>
+
+
+                                        <p class="text-gray"><b> Disponible jusqu' au <br>{{d.datefin|date('Y-m-d') }}</b></p>
+                                        <h1><span style="color: #FA0048;" href="#"><i class="fa fa-dollar" aria-hidden="true"></i>{{ d.price }}</span>
+                                        </h1>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+
+
+
+            </div>
+        </div>
+    <!-- end-->
+    </div>
+
+
+{% endblock %}
